@@ -1,16 +1,18 @@
 package ru.gribnoff.l1.t2;
 
 abstract class Car {
-	public Engine engine;
-	private String color;
-	private String name;
+	protected Engine engine;
+	protected String color;
+	protected String name;
 
 
-	protected void start() {
+	public void start() {
 		System.out.println("Car starting");
 	}
 
-	abstract void open();
+	public void open() {
+		System.out.println("Car is open");
+	}
 
 	public Engine getEngine() {
 		return engine;
@@ -36,4 +38,3 @@ abstract class Car {
 		this.name = name;
 	}
 }
-
