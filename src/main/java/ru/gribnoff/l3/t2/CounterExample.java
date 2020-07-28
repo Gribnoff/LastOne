@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CounterExample {
+	static Counter counter = new Counter();
+
 	public static void main(String[] args) {
 		List<Thread> threads = new ArrayList<>();
 		for (int i = 0; i < 3; i++) {
@@ -20,14 +22,14 @@ public class CounterExample {
 			}
 		});
 
-		System.out.println(Counter.getCount());
+		System.out.println(counter.getCount());
 	}
 
 	private static class CountUpRunnable extends Thread {
 		@Override
 		public void run() {
 			for (int i = 0; i < 5; i++) {
-				Counter.countUp();
+				counter.countUp();
 			}
 		}
 	}
@@ -36,7 +38,7 @@ public class CounterExample {
 		@Override
 		public void run() {
 			for (int i = 0; i < 5; i++) {
-				Counter.countDown();
+				counter.countDown();
 			}
 		}
 	}

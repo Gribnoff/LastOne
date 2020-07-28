@@ -12,7 +12,7 @@ class Counter {
 		return count;
 	}
 
-	private Counter() {}
+	Counter() {}
 
 	void countUp() {
 		lock.lock();
