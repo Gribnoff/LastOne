@@ -1,0 +1,13 @@
+server:
+  port: 8189
+  servlet:
+    context-path: /student
+
+spring:
+  datasource:
+    url: jdbc:sqlite:students.db
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: validate
+      
