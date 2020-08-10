@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<!--suppress HtmlUnknownTag, HtmlUnknownAttribute, RequiredAttributes -->
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      lang="RU">
+    <head>
+        <meta charset="utf-8"/>
+        <title>Students</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    </head>
+    <body>
+        <div class="container">
+            <div style="text-align: center;">
+                <h1>Students</h1>
+            </div>
+
+            <a class="btn btn-success" th:href="@{'/students/add/'}">добавить</a>
+            <table class="table table-hover">
+                <thead class="thead-dark">
+                <tr>
+                    <th>Имя</th>
+                    <th>Возраст</th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="student : ${students}" th:object="${student}">
+                        <td>
+                            <a th:href="@{'/students/' + ${student.id}}">[[ *{name} ]]</a>
+                        </td>
+                        <td th:text="*{age}"></td>
+                        <td>
+                            <a class="btn btn-primary" th:href="@{'/students/' + ${student.id} + '/update'}">изменить</a>
+                            <form th:action="@{'/students/' + ${student.id} + '/delete'}" method="post">
+                                <button th:text="удалить" type="submit" class="btn btn-danger"></button>
+                            </form>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </body>
+</html>

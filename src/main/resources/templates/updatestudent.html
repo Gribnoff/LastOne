@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<!--suppress HtmlFormInputWithoutLabel, HtmlUnknownAttribute -->
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      lang="RU">
+<head>
+    <meta charset="utf-8"/>
+    <title>Update student</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+    <div style="text-align: center;">
+        <h3>Изменение студента</h3>
+    </div>
+    <form th:action="@{'/students/' + ${student.id} + '/update'}" method="POST">
+        <div class="form-row">
+            <div class="form-group col-md-3">
+                <input type="text" th:value="${student.name}" name="name" class="form-control">
+            </div>
+            <div class="form-group col-md-3">
+                <input type="text" th:value="${student.age}" name="age" class="form-control">
+            </div>
+        </div>
+        <button type="submit" class="btn btn-success">изменить</button>
+    </form>
+</div>
+</body>
+</html>
